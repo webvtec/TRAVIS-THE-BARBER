@@ -119,7 +119,7 @@
       radial-gradient(ellipse 600px 400px at 110% 110%, rgba(201,169,97,0.06), transparent 60%),
       var(--ink);
     background-attachment: fixed;
-    padding-bottom: 90px; /* room for bottom nav */
+    padding-bottom: 75px; /* room for bottom nav */
     min-height: 100vh;
   }
 
@@ -219,28 +219,18 @@
     background: transparent;
     color: var(--gold);
     border: 1px solid var(--gold);
-    border-radius: 50px;
+    border-radius: 50%;
     height: 42px;
-    padding: 0 14px 0 12px;
+    width: 42px;
     display: inline-flex;
     align-items: center;
-    gap: 6px;
+    justify-content: center;
     text-decoration: none;
     transition: all 0.3s ease;
-    font-family: 'Inter', sans-serif;
-    font-size: 10px;
-    font-weight: 600;
-    letter-spacing: 2.5px;
-    text-transform: uppercase;
   }
   .location-button svg {
     flex-shrink: 0;
     transition: transform 0.3s ease;
-  }
-  .location-button::after {
-    content: 'Visit';
-    display: inline-block;
-    white-space: nowrap;
   }
   .location-button:hover {
     background: var(--gold);
@@ -251,8 +241,7 @@
     transform: translateY(-2px);
   }
   @media (max-width: 420px) {
-    .location-button { padding: 0 11px 0 10px; height: 38px; }
-    .location-button::after { display: none; }
+    .location-button { height: 38px; width: 38px; }
     .location-button svg { width: 16px; height: 20px; }
   }
 
@@ -301,7 +290,7 @@
   .bottom-nav {
     position: fixed;
     bottom: 0; left: 0; right: 0;
-    height: 72px;
+    height: 58px;
     background: linear-gradient(180deg, rgba(14,14,16,0.95) 0%, rgba(14,14,16,1) 100%);
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
@@ -330,19 +319,19 @@
   .nav-item {
     flex: 1;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
-    gap: 6px;
-    padding: 10px 4px 8px;
+    gap: 4px;
+    padding: 10px 2px;
     background: transparent;
     border: none;
     color: var(--text-dim);
     cursor: pointer;
     font-family: 'Inter', sans-serif;
-    font-size: 10px;
+    font-size: 11px;
     font-weight: 600;
-    letter-spacing: 1.5px;
+    letter-spacing: 1px;
     text-transform: uppercase;
     text-decoration: none;
     transition: color 0.25s ease;
@@ -351,12 +340,12 @@
     line-height: 1;
   }
   .nav-item .nav-icon {
-    font-size: 18px;
+    font-size: 15px;
     line-height: 1;
-    display: block;
+    display: inline-block;
   }
   .nav-item .nav-label {
-    display: block;
+    display: inline-block;
     line-height: 1;
   }
   .nav-item.active { color: var(--gold); }
@@ -371,6 +360,10 @@
     background: var(--gold);
   }
   .nav-item:hover { color: var(--cream); }
+  @media (max-width: 380px) {
+    .nav-item { font-size: 10px; letter-spacing: 0.5px; gap: 3px; }
+    .nav-item .nav-icon { font-size: 13px; }
+  }
 
   /* ================= CONTENT ================= */
   .content-section {
@@ -523,6 +516,9 @@
   }
 
   /* ================= GALLERY ================= */
+  #gallerySection { padding-top: 88px; }
+  #gallerySection .gallery-category:first-child { margin-top: 8px; }
+
   .gallery-category {
     margin-top: 40px;
     padding: 0 4px;
@@ -783,7 +779,6 @@
   }
   @media (max-width: 380px) {
     .header-title { font-size: 18px; }
-    .nav-item { font-size: 9px; letter-spacing: 1px; }
   }
 
   /* Scrim for open menu */
@@ -866,9 +861,6 @@
 
 <!-- Gallery Section -->
 <div class="content-section active" id="gallerySection">
-  <div class="gallery-hero">
-    <a class="book-now-btn book-now-btn--primary" onclick="showSection('bookingSection')" href="javascript:void(0);">Book an Appointment</a>
-  </div>
   <div id="galleryDisplay"></div>
 </div>
 
